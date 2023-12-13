@@ -18,8 +18,12 @@ import HelloWorld from "./components/HelloWorld.vue";
   <MyModal v-model:show="modalVisible">
     <PostForm @create="createPost" />
   </MyModal>
-  <PostList v-bind:posts="posts" @remove="removePost" />
-  <!-- :posts  -->
+  <PostList v-bind:posts="posts" @remove="removePost" v-if="!isLoading" />
+  <div v-else class="spinner-box">
+    <div class="circle-border">
+      <div class="circle-core"></div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -35,6 +39,7 @@ export default {
     return {
       posts: [],
       modalVisible: false,
+      isLoading: false,
     };
   },
   methods: {
@@ -50,10 +55,14 @@ export default {
     },
     async fetchPosts() {
       try {
-        const response = await axios.get(
-          "https://official-joke-api.appspot.com/jokes/programming/ten"
-        );
-        this.posts = response.data;
+        this.isLoading = true;
+        setTimeout(async () => {
+          const response = await axios.get(
+            "https://official-joke-api.appspot.com/jokes/programming/ten"
+          );
+          this.posts = response.data;
+          this.isLoading = false;
+        }, 700);
       } catch (e) {
         alert("Упс, ашипка!");
       }
@@ -86,5 +95,46 @@ export default {
   align-items: center;
   gap: 1rem;
   margin-bottom: 2rem;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.spinner-box {
+  margin: auto;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+.circle-border {
+  width: 150px;
+  height: 150px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgb(63, 249, 220);
+  background: linear-gradient(
+    0deg,
+    rgba(61, 250, 222, 0.102) 33%,
+    rgba(63, 249, 220, 1) 100%
+  );
+  animation: spin 0.8s linear 0s infinite;
+}
+
+.circle-core {
+  width: 100%;
+  height: 100%;
+  background-color: #242424;
+  border-radius: 50%;
 }
 </style>
