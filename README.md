@@ -13,30 +13,7 @@ This is a simple Vue 3 application showcasing my ability to structure and run a 
 
 ## Project Structure
 
-<details>
-vue_app/
-│
-├── public/
-│   ├── close.svg
-│   └── ...
-├── src/
-│   ├── components/
-│   │   ├── UI   
-│   │   │   ├── MyButton.vue
-│   │   │   └── MyModal.vue
-│   │   ├── PostItem.vue
-│   │   ├── PostList.vue
-│   │   ├── PostForm.vue
-│   │   └── ...
-│   ├── App.vue
-│   ├── main.js
-│   └── ...
-├── .gitignore
-├── vite.config.js
-├── package.json
-├── README.md
-└── ...
-</details>
+(./public/structure.png)
 
 ## Features
 
