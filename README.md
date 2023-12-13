@@ -13,7 +13,8 @@ This is a simple Vue 3 application showcasing my ability to structure and run a 
 
 ## Project Structure
 
-(./public/structure.png)
+<img width="512" alt="structure" src="https://github.com/mariaklyass/vue_app/assets/110608602/66d4b735-db91-4e32-b909-738215b77193">
+
 
 ## Features
 
