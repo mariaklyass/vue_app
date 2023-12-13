@@ -13,7 +13,8 @@ This is a simple Vue 3 application showcasing my ability to structure and run a 
 
 ## Project Structure
 
-`vue_app/
+<details>
+vue_app/
 │
 ├── public/
 │   ├── close.svg
@@ -34,7 +35,8 @@ This is a simple Vue 3 application showcasing my ability to structure and run a 
 ├── vite.config.js
 ├── package.json
 ├── README.md
-└── ...`
+└── ...
+</details>
 
 ## Features
 
